@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">Favorite Links</a>
+    <a id="btnNav" class="navbar-toggler btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+      {{#if user}}
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Links
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links">All links</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/add">Add A Links</a>
+          </div>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a href="/signin" class="nav-link">SignIn</a>
+          </li>
+          <li class="nav-item">
+            <a href="/signup" class="nav-link">SignUp</a>
+          </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
+
+<script type="text/javascript">
+  let btn = document.querySelector('#btnNav');
+  let navBar = document.querySelector('#navbarNav')
+
+  btn.onclick = () => {
+    navBar.classList.toggle("show");
+  }
+</script>
